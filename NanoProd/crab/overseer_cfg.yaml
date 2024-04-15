@@ -3,8 +3,8 @@ params:
   customise: NanoProd/NanoProd/customize.customize
   outputs:
     - file: nanoHTT.root
-      crabOutput: TODO #T2_CH_CERN:/store/group/phys_tau/kandroso/htt_skim_v1_prod/Run2_2016
-      finalOutput: TODO #T2_CH_CERN:/store/group/phys_tau/kandroso/htt_skim_v1/Run2_2016
+      crabOutput: T2_FR_GRIF_LLR:/store/user/evernazz/bbtt-prod
+      finalOutput: T2_FR_GRIF_LLR:/store/user/evernazz/bbtt/nanoV10
       skimCfg: skim_htt.yaml
       skimSetup: skim
       skimSetupFailed: skim_failed
@@ -36,7 +36,7 @@ localProcessing:
   maxRuntime: 24 # hours
 targetOutputFileSize: 2048 # MiB
 renewKerberosTicket: True
-htmlReport: TODO #T3_CH_CERNBOX:/store/user/kandroso/www/HLepRare/skim_v1/Run2_2016
+htmlReport: T3_CH_CERNBOX:/store/user/evernazz/bbtt-prod
 whitelistFinalRecovery:
   - T1_DE_KIT
   - T1_US_FNAL
