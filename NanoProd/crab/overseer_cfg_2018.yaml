@@ -1,0 +1,52 @@
+cmsswPython: RunKit/nanoProdWrapper.py
+params:
+  customise: NanoProd/NanoProd/customize.customize
+  outputs:
+    - file: nanoHTT.root
+      crabOutput: T2_FR_GRIF_LLR:/store/user/evernazz/HTT/Run2_2018
+      finalOutput: T2_FR_GRIF_LLR:/store/user/evernazz/bbtt/nanoV10/Run2_2018
+      skimCfg: skim_htt.yaml
+      skimSetup: skim
+      skimSetupFailed: skim_failed
+  maxEvents: -1
+unitsPerJob: 16
+scriptExe: RunKit/crabJob.sh
+filesToTransfer:
+  - RunKit/crabJob.sh
+  - RunKit/crabJob.py
+  - RunKit/crabJob_nanoProd.py
+  - RunKit/skim_tree.py
+  - RunKit/run_tools.py
+  - RunKit/grid_tools.py
+  - NanoProd/config/skim_htt.yaml
+  - NanoProd/python/customize.py
+maxMemory: 2500
+numCores: 1
+inputDBS: global
+allowNonValid: False
+dryrun: False
+maxRecoveryCount: 4
+updateInterval: 60
+localProcessing:
+  lawTask: ProdTask
+  workflow: htcondor
+  bootstrap: bootstrap.sh
+  requirements: TARGET.OpSysAndVer =?= "AlmaLinux9"
+  maxParallelJobs: 1000
+  maxRuntime: 24 # hours
+targetOutputFileSize: 2048 # MiB
+renewKerberosTicket: True
+htmlReport: root://eosuser.cern.ch///eos/user/e/evernazz/www/ZZbbtautau/HTTReprocessing/2018
+whitelistFinalRecovery:
+  - T1_DE_KIT
+  - T1_US_FNAL
+  - T2_AT_Vienna
+  - T2_CH_CERN
+  - T2_DE_DESY
+  - T2_DE_RWTH
+  - T2_ES_CIEMAT
+  - T2_IT_Legnaro
+  - T2_UK_London_IC
+  - T2_US_Caltech
+  - T2_US_UCSD
+  - T2_US_Wisconsin
