@@ -26,6 +26,7 @@ gfal-mkdir root://eos.grif.fr///eos/grif/cms/llr/store/user/evernazz/HTT/Run2_20
 ####################################################################################################
 source $PWD/env.sh
 voms-proxy-init -voms cms -rfc -valid 192:00
+law index
 python RunKit/checkTasksConsistency.py NanoProd/crab/Run2_2016/ZZbbtt.yaml
 python RunKit/checkDatasetExistance.py NanoProd/crab/Run2_2016/ZZbbtt.yaml
 rm -r crab_test
@@ -36,28 +37,28 @@ rm -r .crabOverseer
 screen
 source $PWD/env.sh
 voms-proxy-init -voms cms -rfc -valid 192:00
-python RunKit/crabOverseer.py --work-area crab_test --cfg NanoProd/crab/overseer_cfg.yaml NanoProd/crab/Run2_2016/ZZbbtt.yaml NanoProd/crab/Run2_2016/ZbbHtt.yaml NanoProd/crab/Run2_2016/ZttHbb.yaml
+python RunKit/crabOverseer.py --work-area crab_test_2016 --cfg NanoProd/crab/overseer_cfg_2016.yaml NanoProd/crab/Run2_2016/ZZbbtt.yaml NanoProd/crab/Run2_2016/ZbbHtt.yaml NanoProd/crab/Run2_2016/ZttHbb.yaml
 
-# ZZ 2016_HIPM
+# ZZ 2016_HIPM (lxplus9106)
 screen
 source $PWD/env.sh
 voms-proxy-init -voms cms -rfc -valid 192:00
 python RunKit/crabOverseer.py --work-area crab_test_2016_HIPM --cfg NanoProd/crab/overseer_cfg_2016_HIPM.yaml NanoProd/crab/Run2_2016_HIPM/ZZbbtt.yaml NanoProd/crab/Run2_2016_HIPM/ZbbHtt.yaml NanoProd/crab/Run2_2016_HIPM/ZttHbb.yaml
 
-# ZZ 2017
+# ZZ 2017 (lxplus9106)
 screen
 source $PWD/env.sh
 voms-proxy-init -voms cms -rfc -valid 192:00
 python RunKit/crabOverseer.py --work-area crab_test_2017 --cfg NanoProd/crab/overseer_cfg_2017.yaml NanoProd/crab/Run2_2017/ZZbbtt.yaml NanoProd/crab/Run2_2017/ZbbHtt.yaml NanoProd/crab/Run2_2017/ZttHbb.yaml
 
-# ZZ 2018
+# ZZ 2018 (lxplus9106)
 screen
 source $PWD/env.sh
 voms-proxy-init -voms cms -rfc -valid 192:00
 python RunKit/crabOverseer.py --work-area crab_test_2018 --cfg NanoProd/crab/overseer_cfg_2018.yaml NanoProd/crab/Run2_2018/ZZbbtt.yaml NanoProd/crab/Run2_2018/ZbbHtt.yaml NanoProd/crab/Run2_2018/ZttHbb.yaml
 
 ####################################################################################################
-
+python3 -m http.server
 ####################################################################################################
 
 ####################################################################################################
